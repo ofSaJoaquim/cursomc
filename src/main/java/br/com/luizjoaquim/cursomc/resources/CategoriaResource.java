@@ -14,7 +14,7 @@ import br.com.luizjoaquim.cursomc.domain.Categoria;
 import br.com.luizjoaquim.cursomc.service.CategoriaService;
 
 @RestController
-@RequestMapping(value="/categorias")
+@RequestMapping(value="/categoria")
 public class CategoriaResource {
 
 	@Autowired
@@ -24,11 +24,12 @@ public class CategoriaResource {
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		Categoria obj = service.buscar(id);
 		
-		Categoria cat1 = new Categoria(1,"Farmacia");
+	/*	Categoria cat1 = new Categoria(1,"Farmacia");
 		Categoria cat2 = new Categoria(2,"Escritorio");
 		List<Categoria>lista=new ArrayList<>();
 		lista.add(cat1);
-		lista.add(cat2);
+		lista.add(cat2);*/
+		
 		return ResponseEntity.ok().body(obj);//retorna o objeto dentro de um http
 	}
 }
