@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Endereco implements Serializable{
 	
@@ -22,11 +24,12 @@ public class Endereco implements Serializable{
 	private String complemento;
 	private String bairro;
 	private String cep;
-	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
+	 //protege contra processo ciclico com o cliente, define que o cliente nao era acessivel pelo endereço
 	@ManyToOne
 	@JoinColumn(name="cidade_id")
 	private Cidade cidade;
