@@ -31,4 +31,5 @@ public class CategoriaResource {
 		
 		return ResponseEntity.ok().body(obj);//retorna o objeto dentro de um http
 	}
+	
 }
